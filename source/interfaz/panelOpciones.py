@@ -12,7 +12,9 @@ class PanelOpciones(tk.LabelFrame):
         self.columnconfigure(1, weight=1)
         
         self.botonOpcion1 = tk.Button(self, text='Opcion 1')
-        self.botonOpcion1.grid(row=0, column=0, sticky=tk.E+tk.W)
+        self.botonOpcion1.grid(row=0, column=0, padx=1, pady=2,
+            sticky=tk.E+tk.W)
         
         self.botonOpcion2 = tk.Button(self, text='Opcion 2')
-        self.botonOpcion2.grid(row=0, column=1, sticky=tk.E+tk.W)
+        self.botonOpcion2.grid(row=0, column=1, padx=1, pady=2,
+            sticky=tk.E+tk.W)

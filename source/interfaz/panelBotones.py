@@ -6,7 +6,7 @@ class PanelBotones(tk.LabelFrame):
         
         tk.LabelFrame.__init__(self, parent, text='Modificaciones')
         
-        self.config(background='white')
+        self.config(background='white', padx=4, pady=4)
         
         self.columnconfigure(0, weight=1)
         

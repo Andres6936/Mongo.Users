@@ -40,18 +40,18 @@ class InterfazTriangulo(tk.Frame):
         self.panelImagen.grid(row=0, sticky=tk.E+tk.W)
         
         self.panelBotones = PanelBotones(self)
-        self.panelBotones.grid(row=1, sticky=tk.E+tk.W)
+        self.panelBotones.grid(row=1, padx=4, pady=4, sticky=tk.E+tk.W)
         
         self.panelTriangulo = PanelTriangulo(self)
         self.panelTriangulo.grid(row=1, rowspan=2, column=1,
-            sticky=tk.E+tk.W)
+            padx=4, sticky=tk.E+tk.W)
         
         self.panelInfo = PanelInfo(self)
-        self.panelInfo.grid(row=2, sticky=tk.E+tk.W)
+        self.panelInfo.grid(row=2, padx=4, pady=4, sticky=tk.E+tk.W)
         
         self.panelOpciones = PanelOpciones(self)
         self.panelOpciones.grid(row=3, column=0, columnspan=2,
-            sticky=tk.E+tk.W)
+            padx=4, pady=4, sticky=tk.E+tk.W)
             
         # Enviamos el triangulo para dibujar
         self.panelTriangulo.setTriangulo(self.triangulo)

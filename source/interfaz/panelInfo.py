@@ -6,7 +6,7 @@ class PanelInfo(tk.LabelFrame):
         
         tk.LabelFrame.__init__(self, parent, text='Información')
         
-        self.config(background='white')
+        self.config(background='white', padx=4, pady=4)
         
         self.etiquetaPerimetro = tk.Label(self, text='Perímetro')
         self.etiquetaPerimetro.grid(row=0, sticky=tk.N+tk.S+tk.E+tk.W)

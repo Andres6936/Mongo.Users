@@ -10,6 +10,10 @@ class Application(tk.Frame):
         
         self.config(background='white')
         
+        # Obtenemos el ventana superior (Top-Level window)
+        top = self.winfo_toplevel()
+        top.resizable(width=False, height=False)
+        
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
         
