@@ -2,7 +2,7 @@ import tkinter as tk
 
 
 from source.interfaz.panelTriangulo import PanelTriangulo
-from source.interfaz.panelOpciones import PanelOpciones
+from source.interfaz.TabNewConnection import TabNewConnection
 from source.interfaz.panelBotones import PanelBotones
 from source.interfaz.panelImagen import PanelImagen
 from source.interfaz.panelInfo import PanelInfo
@@ -34,7 +34,7 @@ class InterfazTriangulo(tk.Frame):
         self.triangulo = Triangulo(self.punto1, self.punto2,
             self.punto3, self.colorRelleno, self.colorLineas)
         
-        self.panelOpciones = PanelOpciones(self)
+        self.panelOpciones = TabNewConnection(self)
         self.panelOpciones.grid(row=0, column=0, padx=4, pady=4, sticky=tk.E+tk.W)
         self.pack()
 
