@@ -1,35 +1,39 @@
 import tkinter as tk
+from tkinter import ttk
+
+from source.interfaz.PanelAuthentication import PanelAuthentication
+
 
 class PanelOpciones(tk.LabelFrame):
-    
+
     def __init__(self, parent):
-        
-        tk.LabelFrame.__init__(self, parent, text='Connection Mongo')
-        
+        tk.LabelFrame.__init__(self, parent, text='New Connection')
+
         self.config(background='white')
-        
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=1)
 
-        self.usernameLabel = tk.Label(self, text="Username")
-        self.usernameLabel.grid(row=1, column=0, sticky=tk.E + tk.W)
+        self.advanceConnectionOptions = ttk.Notebook(self)
 
-        self.username = tk.StringVar()
-        self.usernameInput = tk.Entry(self, textvariable=self.username)
-        self.usernameInput.grid(row=1, column=1, sticky=tk.E + tk.W)
+        self.tabGeneral = PanelAuthentication(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabGeneral, text="General")
 
-        self.passwordLabel = tk.Label(self, text="Password")
-        self.passwordLabel.grid(row=1, column=2, sticky=tk.E + tk.W)
+        self.tabAuthentication = PanelAuthentication(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabAuthentication, text="Authentication")
 
-        self.password = tk.StringVar()
-        self.passwordInput = tk.Entry(self, textvariable=self.password)
-        self.passwordInput.grid(row=1, column=3, sticky=tk.E + tk.W)
+        self.tabTLS_SSL = PanelAuthentication(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabTLS_SSL, text="TLS/SSL")
 
-        self.buttonConnect = tk.Button(self, text='Connect', command=self.connect)
-        self.buttonConnect.grid(row=2, column=0, columnspan=2, sticky=tk.E+tk.W)
-        
-        self.buttonCancel = tk.Button(self, text='Cancel')
-        self.buttonCancel.grid(row=2, column=2, columnspan=2, sticky=tk.E+tk.W)
+        self.tabProxy_SSH = tk.Frame(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabProxy_SSH, text="Proxy/SSH")
+
+        self.tabInUseEncryption = tk.Frame(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabInUseEncryption, text="In-Use Encryption")
+
+        self.tabAdvanced = tk.Frame(self.advanceConnectionOptions)
+        self.advanceConnectionOptions.add(self.tabAdvanced, text="Advanced")
+
+        self.advanceConnectionOptions.pack(padx=5, pady=5)
 
     def connect(self):
         print("Connect")

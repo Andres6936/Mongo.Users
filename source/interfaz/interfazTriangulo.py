@@ -33,30 +33,10 @@ class InterfazTriangulo(tk.Frame):
         
         self.triangulo = Triangulo(self.punto1, self.punto2,
             self.punto3, self.colorRelleno, self.colorLineas)
-            
-        
-        # Construye los paneles.
-        self.panelImagen = PanelImagen(self)
-        self.panelImagen.grid(row=0, sticky=tk.E+tk.W)
-        
-        self.panelBotones = PanelBotones(self)
-        self.panelBotones.grid(row=1, padx=4, pady=4, sticky=tk.E+tk.W)
-        
-        self.panelTriangulo = PanelTriangulo(self)
-        self.panelTriangulo.grid(row=1, rowspan=2, column=1,
-            padx=4, sticky=tk.E+tk.W)
-        
-        self.panelInfo = PanelInfo(self)
-        self.panelInfo.grid(row=2, padx=4, pady=4, sticky=tk.E+tk.W)
         
         self.panelOpciones = PanelOpciones(self)
-        self.panelOpciones.grid(row=3, column=0, columnspan=2,
-            padx=4, pady=4, sticky=tk.E+tk.W)
-            
-        # Enviamos el triangulo para dibujar
-        self.panelTriangulo.setTriangulo(self.triangulo)
-        
-        self.panelTriangulo.paintComponent()
+        self.panelOpciones.grid(row=0, column=0, padx=4, pady=4, sticky=tk.E+tk.W)
+        self.pack()
 
     
     def getTriangulo(self):
