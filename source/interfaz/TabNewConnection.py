@@ -14,7 +14,6 @@ class TabNewConnection(tk.LabelFrame):
     def __init__(self, parent):
         tk.LabelFrame.__init__(self, parent, text='New Connection')
 
-        self.config(background='white')
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=1)
 
