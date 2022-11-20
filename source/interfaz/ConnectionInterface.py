@@ -14,12 +14,12 @@ class ConnectionInterface(tk.Frame):
         self.columnconfigure(0, weight=1)
 
         self.panelURL = PanelURL(self)
-        self.panelURL.grid(row=0, column=0, sticky=tk.E + tk.W)
+        self.panelURL.grid(row=0, sticky=tk.E + tk.W)
 
         self.tabNewConnection = TabNewConnection(self)
-        self.tabNewConnection.grid(row=1, column=0, padx=4, pady=4, sticky=tk.E + tk.W)
+        self.tabNewConnection.grid(row=1, sticky=tk.E + tk.W)
 
         self.panelMainButtons = PanelMainButtons(self)
-        self.panelMainButtons.grid(row=2, column=0, sticky=tk.E + tk.W)
+        self.panelMainButtons.grid(row=2, sticky=tk.E + tk.W)
 
-        self.pack()
+        self.pack(fill="both", expand=True)
