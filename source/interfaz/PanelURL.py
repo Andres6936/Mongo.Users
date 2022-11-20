@@ -16,7 +16,7 @@ class PanelURL(tk.Frame):
         self.labelDescription.grid(row=1, column=0, columnspan=2, sticky=tk.W)
 
         self.labelURI = tk.Label(self, text='URI')
-        self.labelURI.grid(row=2, column=0, sticky=tk.E + tk.W)
+        self.labelURI.grid(row=2, column=0, sticky=tk.W)
 
         self.editConnectionString = tk.Checkbutton(self, text='Edit Connection String')
         self.editConnectionString.grid(row=2, column=1, sticky=tk.E + tk.W)
