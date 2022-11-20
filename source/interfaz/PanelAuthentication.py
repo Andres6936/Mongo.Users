@@ -4,25 +4,28 @@ class PanelAuthentication(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
-        self.usernameLabel = tk.Label(self, text="Username")
-        self.usernameLabel.grid(row=1, column=0, sticky=tk.E + tk.W)
+        self.grid_columnconfigure((0, 1, 2, 3, 4, 5), weight=1)
 
-        self.username = tk.StringVar()
-        self.usernameInput = tk.Entry(self, textvariable=self.username)
-        self.usernameInput.grid(row=1, column=1, sticky=tk.E + tk.W)
+        self.labelAuthenticationMethod = tk.Label(self, text="Authentication Method")
+        self.labelAuthenticationMethod.grid(row=0)
 
-        self.passwordLabel = tk.Label(self, text="Password")
-        self.passwordLabel.grid(row=1, column=2, sticky=tk.E + tk.W)
+        self.buttonNone = tk.Button(self, text='None', command=self.connect)
+        self.buttonNone.grid(row=1, column=0, sticky=tk.E + tk.W)
 
-        self.password = tk.StringVar()
-        self.passwordInput = tk.Entry(self, textvariable=self.password)
-        self.passwordInput.grid(row=1, column=3, sticky=tk.E + tk.W)
+        self.buttonUsernamePassword = tk.Button(self, text='Username/Password')
+        self.buttonUsernamePassword.grid(row=1, column=1, sticky=tk.E + tk.W)
 
-        self.buttonConnect = tk.Button(self, text='Connect', command=self.connect)
-        self.buttonConnect.grid(row=2, column=0, columnspan=2, sticky=tk.E + tk.W)
+        self.buttonX509 = tk.Button(self, text="X.509")
+        self.buttonX509.grid(row=1, column=2, sticky=tk.E + tk.W)
 
-        self.buttonCancel = tk.Button(self, text='Cancel')
-        self.buttonCancel.grid(row=2, column=2, columnspan=2, sticky=tk.E + tk.W)
+        self.buttonKerberos = tk.Button(self, text="Kerberos")
+        self.buttonKerberos.grid(row=1, column=3, sticky=tk.E + tk.W)
+
+        self.buttonLDAP = tk.Button(self, text="LDAP")
+        self.buttonLDAP.grid(row=1, column=4, sticky=tk.E + tk.W)
+
+        self.buttonAWSIAM = tk.Button(self, text="AWS IAM")
+        self.buttonAWSIAM.grid(row=1, column=5, sticky=tk.E + tk.W)
 
     def connect(self):
         print("Connect")
