@@ -10,8 +10,8 @@ class ConnectionInterface(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
-        self.rowconfigure(0, weight=1)
-        self.columnconfigure(0, weight=1)
+        self.grid_columnconfigure((0), uniform="uniform", weight=1)
+        self.grid_columnconfigure((0), uniform="uniform", weight=1)
 
         self.panelURL = PanelURL(self)
         self.panelURL.grid(row=0, sticky=tk.E + tk.W)
@@ -21,5 +21,3 @@ class ConnectionInterface(tk.Frame):
 
         self.panelMainButtons = PanelMainButtons(self)
         self.panelMainButtons.grid(row=2, sticky=tk.E + tk.W)
-
-        self.pack(fill="both", expand=True)
