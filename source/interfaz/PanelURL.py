@@ -8,11 +8,20 @@ class PanelURL(tk.Frame):
 
         self.config(padx=4, pady=4)
 
+        self.labelNewConnection = tk.Label(self, text="New Connection")
+        self.labelNewConnection.grid(row=0, column=0, sticky=tk.E + tk.W)
+
+        self.labelDescription = tk.Label(self, text="Connect to a MongoDB deployment")
+        self.labelDescription.grid(row=1, column=0, sticky=tk.E + tk.W)
+
         self.labelURI = tk.Label(self, text='URI')
-        self.labelURI.grid(row=0, column=0, sticky=tk.E + tk.W)
+        self.labelURI.grid(row=2, column=0, sticky=tk.E + tk.W)
 
         self.editConnectionString = tk.Checkbutton(self, text='Edit Connection String')
-        self.editConnectionString.grid(row=0, column=1, sticky=tk.E + tk.W)
+        self.editConnectionString.grid(row=2, column=1, sticky=tk.E + tk.W)
 
         self.entryURI = tk.Entry(self)
-        self.entryURI.grid(row=1, sticky=tk.E + tk.W)
+        self.entryURI.grid(row=3, column=0, sticky=tk.E + tk.W)
+
+        self.labelAdvanceConnectionOptions = tk.Label(self, text="Advanced Connection Options")
+        self.labelAdvanceConnectionOptions.grid(row=4, column=0, sticky=tk.E + tk.W)

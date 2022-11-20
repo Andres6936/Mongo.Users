@@ -9,10 +9,10 @@ from source.interfaz.PanelProxySSH import PanelProxySSH
 from source.interfaz.PanelTLSSSL import PanelTLSSSL
 
 
-class TabNewConnection(tk.LabelFrame):
+class TabNewConnection(tk.Frame):
 
     def __init__(self, parent):
-        tk.LabelFrame.__init__(self, parent, text='New Connection')
+        tk.Frame.__init__(self, parent)
 
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=1)
