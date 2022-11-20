@@ -1,6 +1,7 @@
 import tkinter as tk
 
 from source.interfaz.PanelMainButtons import PanelMainButtons
+from source.interfaz.PanelURL import PanelURL
 from source.interfaz.TabNewConnection import TabNewConnection
 
 
@@ -12,10 +13,13 @@ class ConnectionInterface(tk.Frame):
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
 
+        self.panelURL = PanelURL(self)
+        self.panelURL.grid(row=0, column=0, sticky=tk.E + tk.W)
+
         self.tabNewConnection = TabNewConnection(self)
-        self.tabNewConnection.grid(row=0, column=0, padx=4, pady=4, sticky=tk.E + tk.W)
+        self.tabNewConnection.grid(row=1, column=0, padx=4, pady=4, sticky=tk.E + tk.W)
 
         self.panelMainButtons = PanelMainButtons(self)
-        self.panelMainButtons.grid(row=1, column=0, sticky=tk.E + tk.W)
+        self.panelMainButtons.grid(row=2, column=0, sticky=tk.E + tk.W)
 
         self.pack()
