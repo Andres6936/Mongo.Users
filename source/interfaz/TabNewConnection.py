@@ -14,8 +14,8 @@ class TabNewConnection(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=1)
+        self.grid_columnconfigure((0), uniform="uniform", weight=1)
+        self.grid_rowconfigure((0), uniform="uniform", weight=1)
 
         self.advanceConnectionOptions = ttk.Notebook(self)
 
@@ -37,7 +37,7 @@ class TabNewConnection(tk.Frame):
         self.tabAdvanced = PanelAdvanced(self.advanceConnectionOptions)
         self.advanceConnectionOptions.add(self.tabAdvanced, text="Advanced")
 
-        self.advanceConnectionOptions.pack(padx=5, pady=5)
+        self.advanceConnectionOptions.grid(row=0, column=0, padx=5, pady=5)
 
     def connect(self):
         print("Connect")
