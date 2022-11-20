@@ -11,7 +11,7 @@ class PanelURL(tk.Frame):
         self.labelURI = tk.Label(self, text='URI')
         self.labelURI.grid(row=0, column=0, sticky=tk.E + tk.W)
 
-        self.editConnectionString = tk.Radiobutton(self, text='Altura')
+        self.editConnectionString = tk.Checkbutton(self, text='Edit Connection String')
         self.editConnectionString.grid(row=0, column=1, sticky=tk.E + tk.W)
 
         self.entryURI = tk.Entry(self)
