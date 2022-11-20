@@ -1,6 +1,10 @@
 import tkinter as tk
+# Avoid the blurry font in Windows 10 - Reference: https://stackoverflow.com/a/43046744
+from ctypes import windll
 
 from source.interfaz.ConnectionInterface import ConnectionInterface
+
+windll.shcore.SetProcessDpiAwareness(1)
 
 
 class Application(tk.Frame):
