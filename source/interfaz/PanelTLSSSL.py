@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
+
 class PanelTLSSSL(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
@@ -40,8 +41,19 @@ class PanelTLSSSL(tk.Frame):
         self.checkInsecure = ttk.Checkbutton(self, text="tlsInsecure")
         self.checkInsecure.grid(row=6, sticky=tk.W)
 
+        self.labelInsecure = ttk.Label(self,
+                                       text="This includes tlsAllowInvalidHostnames and tlsAllowInvalidCertificates.")
+        self.labelInsecure.grid(row=7, column=0, columnspan=3, sticky=tk.W)
+
         self.checkAllowInvalidHostnames = ttk.Checkbutton(self, text="tlsAllowInvalidHostnames")
-        self.checkAllowInvalidHostnames.grid(row=7, sticky=tk.W)
+        self.checkAllowInvalidHostnames.grid(row=8, sticky=tk.W)
+
+        self.labelAllowInvalidHostnames = ttk.Label(self,
+                                                    text="Disable the validation of the hostnames in the certificate presented by the mongod/mongos instance.")
+        self.labelAllowInvalidHostnames.grid(row=9, column=0, columnspan=3, sticky=tk.W)
 
         self.checkAllowInvalidCertificates = ttk.Checkbutton(self, text="tlsAllowInvalidCertificates")
-        self.checkAllowInvalidCertificates.grid(row=8, sticky=tk.W)
+        self.checkAllowInvalidCertificates.grid(row=10, sticky=tk.W)
+
+        self.labelAllowInvalidCertificates = ttk.Label(self, text="Disable the validation of the server certificates.")
+        self.labelAllowInvalidCertificates.grid(row=11, column=0, columnspan=3, sticky=tk.W)
