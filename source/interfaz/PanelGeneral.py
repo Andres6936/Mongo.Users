@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 
 class PanelGeneral(tk.Frame):
@@ -8,10 +9,10 @@ class PanelGeneral(tk.Frame):
         self.connectionStringScheme = tk.Label(self, text="Connection String Scheme")
         self.connectionStringScheme.grid(row=0, column=0, sticky=tk.W)
 
-        self.buttonConnectionMongo = tk.Button(self, text="mongodb")
+        self.buttonConnectionMongo = ttk.Button(self, text="mongodb")
         self.buttonConnectionMongo.grid(row=1, column=0, sticky=tk.W + tk.E)
 
-        self.buttonConnectionSRV = tk.Button(self, text="mongodb+svr")
+        self.buttonConnectionSRV = ttk.Button(self, text="mongodb+svr")
         self.buttonConnectionSRV.grid(row=1, column=1, sticky=tk.W + tk.E)
 
         self.buttonDescription = tk.Label(self, text="Standard Connection String Format. "
@@ -25,10 +26,10 @@ class PanelGeneral(tk.Frame):
         self.labelHostname = tk.Label(self, text="Host")
         self.labelHostname.grid(row=3, column=0, columnspan=2, sticky=tk.W)
 
-        self.inputHostname = tk.Entry(self)
+        self.inputHostname = ttk.Entry(self)
         self.inputHostname.grid(row=4, column=0, columnspan=2, sticky=tk.W + tk.E)
 
-        self.checkDirectConnection = tk.Checkbutton(self, text="Direct Connection")
+        self.checkDirectConnection = ttk.Checkbutton(self, text="Direct Connection")
         self.checkDirectConnection.grid(row=5, column=0, sticky=tk.W)
 
         self.labelDescriptionDirectConnection = tk.Label(self,
