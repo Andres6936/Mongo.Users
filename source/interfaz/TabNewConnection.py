@@ -19,7 +19,7 @@ class TabNewConnection(tk.Frame):
 
         self.advanceConnectionOptions = ttk.Notebook(self)
 
-        self.tabGeneral = PanelGeneral(self.advanceConnectionOptions, port, hostname)
+        self.tabGeneral = PanelGeneral(self.advanceConnectionOptions, port=port, hostname=hostname)
         self.advanceConnectionOptions.add(self.tabGeneral, text="General")
 
         self.tabAuthentication = PanelAuthentication(self.advanceConnectionOptions)

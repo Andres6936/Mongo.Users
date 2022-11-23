@@ -29,9 +29,9 @@ class PanelGeneral(tk.Frame):
         self.labelHostname = tk.Label(self, text="Host")
         self.labelHostname.grid(row=3, column=0, columnspan=2, sticky=tk.W)
 
-        self.hostnameVar = tk.StringVar(value=f"{hostname.get()}:{port.get()}")
+        self.hostnameVar = tk.StringVar(value=f"{self.hostname.get()}:{self.port.get()}")
         self.hostnameVar.trace_add(mode="write", callback=self.updateHostnamePort)
-        self.inputHostname = ttk.Entry(self, textvariable=self.hostname)
+        self.inputHostname = ttk.Entry(self, textvariable=self.hostnameVar)
         self.inputHostname.grid(row=4, column=0, columnspan=2, sticky=tk.W + tk.E)
 
         self.checkDirectConnection = ttk.Checkbutton(self, text="Direct Connection")
