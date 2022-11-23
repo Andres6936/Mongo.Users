@@ -26,7 +26,8 @@ class PanelGeneral(tk.Frame):
         self.labelHostname = tk.Label(self, text="Host")
         self.labelHostname.grid(row=3, column=0, columnspan=2, sticky=tk.W)
 
-        self.inputHostname = ttk.Entry(self)
+        self.hostname = tk.StringVar(value="localhost:27017")
+        self.inputHostname = ttk.Entry(self, textvariable=self.hostname)
         self.inputHostname.grid(row=4, column=0, columnspan=2, sticky=tk.W + tk.E)
 
         self.checkDirectConnection = ttk.Checkbutton(self, text="Direct Connection")

@@ -22,7 +22,8 @@ class PanelURL(tk.Frame):
         self.editConnectionString = ttk.Checkbutton(self, text='Edit Connection String')
         self.editConnectionString.grid(row=2, column=1, sticky=tk.E + tk.W)
 
-        self.entryURI = ttk.Entry(self)
+        self.uriVariable = tk.StringVar(value="mongodb://localhost:27017/")
+        self.entryURI = ttk.Entry(self, textvariable=self.uriVariable)
         self.entryURI.grid(row=3, column=0, columnspan=2, sticky=tk.E + tk.W)
 
         self.labelAdvanceConnectionOptions = tk.Label(self, text="Advanced Connection Options")
