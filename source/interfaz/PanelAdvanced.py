@@ -32,7 +32,7 @@ class PanelAdvanced(tk.Frame):
         self.labelReplicaSetName.grid(row=3, columnspan=3, sticky=tk.W)
 
         self.entryReplicaSetName = ttk.Entry(self)
-        self.entryReplicaSetName.grid(row=4, columnspan=3, sticky=tk.W)
+        self.entryReplicaSetName.grid(row=4, columnspan=5, sticky=tk.W + tk.E)
 
         self.labelDefaultAuthenticationDatabase = ttk.Label(self, text="Default Authentication Database")
         self.labelDefaultAuthenticationDatabase.grid(row=5, columnspan=4, sticky=tk.W)
@@ -42,7 +42,7 @@ class PanelAdvanced(tk.Frame):
         self.labelDescriptionDefaultAuthentication.grid(row=6, columnspan=4, sticky=tk.W)
 
         self.entryDefaultAuthenticationDatabase = ttk.Entry(self)
-        self.entryDefaultAuthenticationDatabase.grid(row=7, columnspan=4, sticky=tk.W)
+        self.entryDefaultAuthenticationDatabase.grid(row=7, columnspan=5, sticky=tk.W + tk.E)
 
         self.labelURIOptions = ttk.Label(self, text="URI Options")
         self.labelURIOptions.grid(row=8, columnspan=4, sticky=tk.W)
@@ -52,7 +52,7 @@ class PanelAdvanced(tk.Frame):
         self.labelDescriptionURIOptions.grid(row=9, columnspan=4, sticky=tk.W)
 
         self.entryOptionList = ttk.Entry(self)
-        self.entryOptionList.grid(row=10, columnspan=4, sticky=tk.W)
+        self.entryOptionList.grid(row=10, columnspan=5, sticky=tk.W + tk.E)
 
         self.entryOption = ttk.Entry(self)
-        self.entryOption.grid(row=11, columnspan=4, sticky=tk.W)
+        self.entryOption.grid(row=11, columnspan=5, sticky=tk.W + tk.E)
