@@ -3,8 +3,11 @@ from tkinter import ttk
 
 
 class PanelGeneral(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar):
         tk.Frame.__init__(self, parent)
+
+        self.port = port
+        self.hostname = hostname
 
         self.connectionStringScheme = tk.Label(self, text="Connection String Scheme")
         self.connectionStringScheme.grid(row=0, column=0, sticky=tk.W)
@@ -26,7 +29,8 @@ class PanelGeneral(tk.Frame):
         self.labelHostname = tk.Label(self, text="Host")
         self.labelHostname.grid(row=3, column=0, columnspan=2, sticky=tk.W)
 
-        self.hostname = tk.StringVar(value="localhost:27017")
+        self.hostnameVar = tk.StringVar(value=f"{hostname.get()}:{port.get()}")
+        self.hostnameVar.trace_add(mode="write", callback=self.updateHostnamePort)
         self.inputHostname = ttk.Entry(self, textvariable=self.hostname)
         self.inputHostname.grid(row=4, column=0, columnspan=2, sticky=tk.W + tk.E)
 
@@ -36,3 +40,8 @@ class PanelGeneral(tk.Frame):
         self.labelDescriptionDirectConnection = tk.Label(self,
                                                          text="Specifies whether to force dispatch all operations to the specified host.")
         self.labelDescriptionDirectConnection.grid(row=6, column=0, sticky=tk.W)
+
+    def updateHostnamePort(self, *args):
+        (hostname, port) = self.hostnameVar.get().split(":")
+        self.port.set(port)
+        self.hostname.set(hostname)
