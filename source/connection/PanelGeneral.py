@@ -27,7 +27,7 @@ class PanelGeneral(tk.Frame):
                                                      "connection URI is used to connect "
                                                      "to a MongoDB deployment: standalone,"
                                                      " replica set, or a sharded cluster.",
-                                          wraplength="400px")
+                                          wraplength="400px", font=("-size", 10), foreground="#979797")
         self.buttonDescription.grid(row=2, column=0, columnspan=3, sticky=tk.W)
 
         self.labelHostname = tk.Label(self, text="Host")
@@ -41,7 +41,7 @@ class PanelGeneral(tk.Frame):
         self.checkDirectConnection = ttk.Checkbutton(self, text="Direct Connection")
         self.checkDirectConnection.grid(row=5, column=0, columnspan=3, sticky=tk.W)
 
-        self.labelDescriptionDirectConnection = tk.Label(self,
+        self.labelDescriptionDirectConnection = tk.Label(self, font=("-size", 10), foreground="#979797",
                                                          text="Specifies whether to force dispatch all operations to the specified host.")
         self.labelDescriptionDirectConnection.grid(row=6, column=0, columnspan=3, sticky=tk.W)
 

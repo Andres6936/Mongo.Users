@@ -21,12 +21,13 @@ class PanelInUseEncryption(tk.Frame):
         self.labelKMS = ttk.Label(self, text="KMS Providers")
         self.labelKMS.grid(sticky=tk.W)
 
-        self.labelDescriptionKMS = ttk.Label(self, text="Specify one or more Key Management Systems to use.")
+        self.labelDescriptionKMS = ttk.Label(self, text="Specify one or more Key Management Systems to use.",
+                                             font=("-size", 10), foreground="#979797")
         self.labelDescriptionKMS.grid(sticky=tk.W)
 
         self.checkStoreKMS = ttk.Checkbutton(self, text="Store KMS provider secrets")
         self.checkStoreKMS.grid(sticky=tk.W)
 
-        self.labelCheckStoreKMS = ttk.Label(self,
+        self.labelCheckStoreKMS = ttk.Label(self, font=("-size", 10), foreground="#979797",
                                             text="Control whether KMS secrets are stored on disk (protected by the OS keychain) or discarded after disconnecting.")
         self.labelCheckStoreKMS.grid(sticky=tk.W)
