@@ -2,12 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 from typing import Callable
 
-from source.interfaz.PanelAdvanced import PanelAdvanced
-from source.interfaz.PanelAuthentication import PanelAuthentication
-from source.interfaz.PanelGeneral import PanelGeneral
-from source.interfaz.PanelInUseEncryption import PanelInUseEncryption
-from source.interfaz.PanelProxySSH import PanelProxySSH
-from source.interfaz.PanelTLSSSL import PanelTLSSSL
+from source.connection.PanelAdvanced import PanelAdvanced
+from source.connection.PanelAuthentication import PanelAuthentication
+from source.connection.PanelGeneral import PanelGeneral
+from source.connection.PanelInUseEncryption import PanelInUseEncryption
+from source.connection.PanelProxySSH import PanelProxySSH
+from source.connection.PanelTLSSSL import PanelTLSSSL
 
 
 class TabNewConnection(tk.Frame):

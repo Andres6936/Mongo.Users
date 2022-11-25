@@ -1,8 +1,8 @@
 import tkinter as tk
 
-from source.interfaz.PanelMainButtons import PanelMainButtons
-from source.interfaz.PanelURL import PanelURL
-from source.interfaz.TabNewConnection import TabNewConnection
+from source.connection.PanelMainButtons import PanelMainButtons
+from source.connection.PanelURL import PanelURL
+from source.connection.TabNewConnection import TabNewConnection
 
 
 class ConnectionInterface(tk.Frame):
