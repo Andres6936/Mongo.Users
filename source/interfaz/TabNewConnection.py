@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from typing import Callable
 
 from source.interfaz.PanelAdvanced import PanelAdvanced
 from source.interfaz.PanelAuthentication import PanelAuthentication
@@ -11,7 +12,8 @@ from source.interfaz.PanelTLSSSL import PanelTLSSSL
 
 class TabNewConnection(tk.Frame):
 
-    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar, setPort, setHostname):
+    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar,
+                 setPort: Callable[[str], None], setHostname: Callable[[str], None]):
         tk.Frame.__init__(self, parent)
 
         self.grid_columnconfigure((0), uniform="uniform", weight=1)

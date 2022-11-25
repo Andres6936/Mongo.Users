@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+from typing import Callable
 
 
 class PanelGeneral(tk.Frame):
-    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar, setPort, setHostname):
+    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar,
+                 setPort: Callable[[str], None], setHostname: Callable[[str], None]):
         tk.Frame.__init__(self, parent)
 
         self.setPort = setPort
