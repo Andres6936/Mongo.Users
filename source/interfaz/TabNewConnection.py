@@ -11,7 +11,7 @@ from source.interfaz.PanelTLSSSL import PanelTLSSSL
 
 class TabNewConnection(tk.Frame):
 
-    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar):
+    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar, setPort, setHostname):
         tk.Frame.__init__(self, parent)
 
         self.grid_columnconfigure((0), uniform="uniform", weight=1)
@@ -19,7 +19,8 @@ class TabNewConnection(tk.Frame):
 
         self.advanceConnectionOptions = ttk.Notebook(self)
 
-        self.tabGeneral = PanelGeneral(self.advanceConnectionOptions, port=port, hostname=hostname)
+        self.tabGeneral = PanelGeneral(self.advanceConnectionOptions, port=port, hostname=hostname,
+                                       setPort=setPort, setHostname=setHostname)
         self.advanceConnectionOptions.add(self.tabGeneral, text="General")
 
         self.tabAuthentication = PanelAuthentication(self.advanceConnectionOptions)

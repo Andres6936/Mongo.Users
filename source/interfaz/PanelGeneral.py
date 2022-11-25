@@ -3,11 +3,11 @@ from tkinter import ttk
 
 
 class PanelGeneral(tk.Frame):
-    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar):
+    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar, setPort, setHostname):
         tk.Frame.__init__(self, parent)
 
-        self.port = port
-        self.hostname = hostname
+        self.setPort = setPort
+        self.setHostname = setHostname
 
         self.connectionStringScheme = tk.Label(self, text="Connection String Scheme")
         self.connectionStringScheme.grid(row=0, column=0, sticky=tk.W)
@@ -29,7 +29,7 @@ class PanelGeneral(tk.Frame):
         self.labelHostname = tk.Label(self, text="Host")
         self.labelHostname.grid(row=3, column=0, columnspan=2, sticky=tk.W)
 
-        self.hostnameVar = tk.StringVar(value=f"{self.hostname.get()}:{self.port.get()}")
+        self.hostnameVar = tk.StringVar(value=f"{hostname.get()}:{port.get()}")
         self.hostnameVar.trace_add(mode="write", callback=self.updateHostnamePort)
         self.inputHostname = ttk.Entry(self, textvariable=self.hostnameVar)
         self.inputHostname.grid(row=4, column=0, columnspan=2, sticky=tk.W + tk.E)
@@ -43,5 +43,5 @@ class PanelGeneral(tk.Frame):
 
     def updateHostnamePort(self, *args):
         (hostname, port) = self.hostnameVar.get().split(":")
-        self.port.set(port)
-        self.hostname.set(hostname)
+        self.setPort(port)
+        self.setHostname(hostname)

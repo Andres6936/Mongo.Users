@@ -4,7 +4,7 @@ from tkinter import ttk
 
 class PanelURL(tk.Frame):
 
-    def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar):
+    def __init__(self, parent, uri: tk.StringVar):
         tk.Frame.__init__(self, parent)
 
         self.grid(padx=4, pady=4)
@@ -22,8 +22,7 @@ class PanelURL(tk.Frame):
         self.editConnectionString = ttk.Checkbutton(self, text='Edit Connection String')
         self.editConnectionString.grid(row=2, column=1, sticky=tk.E + tk.W)
 
-        self.uriVariable = tk.StringVar(value=f"mongodb://{hostname.get()}:{port.get()}/")
-        self.entryURI = ttk.Entry(self, textvariable=self.uriVariable)
+        self.entryURI = ttk.Entry(self, textvariable=uri)
         self.entryURI.grid(row=3, column=0, columnspan=2, sticky=tk.E + tk.W)
 
         self.labelAdvanceConnectionOptions = tk.Label(self, text="Advanced Connection Options")
