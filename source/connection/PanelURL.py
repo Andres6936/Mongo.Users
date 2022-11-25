@@ -19,7 +19,7 @@ class PanelURL(tk.Frame):
         self.labelURI = tk.Label(self, text='URI')
         self.labelURI.grid(row=2, column=0, sticky=tk.W)
 
-        self.editConnectionString = ttk.Checkbutton(self, text='Edit Connection String')
+        self.editConnectionString = ttk.Checkbutton(self, text='Edit Connection String', style="Switch.TCheckbutton")
         self.editConnectionString.grid(row=2, column=1, sticky=tk.E)
 
         self.entryURI = ttk.Entry(self, textvariable=uri)
