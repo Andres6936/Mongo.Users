@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+from typing import Callable
+
 
 class PanelMainButtons(tk.Frame):
 
-    def __init__(self, parent):
+    def __init__(self, parent, connect: Callable[[None], None]):
         tk.Frame.__init__(self, parent)
 
         self.grid(padx=4, pady=4)
@@ -15,5 +17,5 @@ class PanelMainButtons(tk.Frame):
         self.buttonSaveConnect = ttk.Button(self, text='Save Connect')
         self.buttonSaveConnect.grid(row=0, column=3, sticky=tk.E + tk.W)
 
-        self.buttonConnect = ttk.Button(self, text='Connect')
+        self.buttonConnect = ttk.Button(self, text='Connect', command=connect)
         self.buttonConnect.grid(row=0, column=4, sticky=tk.E + tk.W)
