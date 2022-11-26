@@ -19,7 +19,7 @@ class TabAWSIAM(tk.Frame):
         self.entryAccessKey.grid(row=3)
 
         self.labelSessionToken = ttk.Label(self, text="AWS Session Token")
-        self.labelSessionToken.grid(row=0, sticky=tk.W)
+        self.labelSessionToken.grid(row=4, sticky=tk.W)
 
         self.entrySessionToken = ttk.Entry(self)
-        self.entrySessionToken.grid(row=1)
+        self.entrySessionToken.grid(row=5)

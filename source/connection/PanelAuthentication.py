@@ -17,7 +17,7 @@ class PanelAuthentication(tk.Frame):
         self.labelAuthenticationMethod = tk.Label(self, text="Authentication Method")
         self.labelAuthenticationMethod.grid(row=0, column=0, columnspan=2, sticky=tk.W)
 
-        self.buttonNone = ttk.Button(self, text='None')
+        self.buttonNone = ttk.Button(self, text='None', command=self.showNone)
         self.buttonNone.grid(row=1, column=0)
 
         self.buttonUsernamePassword = ttk.Button(self, text='Username/Password', command=self.showUsernamePassword)
@@ -37,6 +37,11 @@ class PanelAuthentication(tk.Frame):
 
         self.container = tk.Frame(self)
         self.container.grid(row=2, column=0, columnspan=6, sticky=tk.W + tk.E)
+
+    def showNone(self):
+        self.tabNone = tk.Frame(self.container)
+        self.tabNone.grid(row=0, column=0, sticky="nsew")
+        self.tabNone.tkraise()
 
     def showUsernamePassword(self):
         self.tabUsernamePassword = TabUsernamePassword(self.container)
