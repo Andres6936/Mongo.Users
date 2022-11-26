@@ -8,7 +8,7 @@ class SceneManager(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         self.call("source", "azure.tcl")
-        self.call("set_theme", "light")
+        self.call("set_theme", "dark")
         self.title("MongoDB Users")
 
         self.container = tk.Frame(self)

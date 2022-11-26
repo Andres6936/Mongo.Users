@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from source.connection.TabUsernamePassword import TabUsernamePassword
+
+
 class PanelAuthentication(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
@@ -28,5 +31,10 @@ class PanelAuthentication(tk.Frame):
         self.buttonAWSIAM = ttk.Button(self, text="AWS IAM")
         self.buttonAWSIAM.grid(row=1, column=5)
 
+        self.container = tk.Frame(self)
+        self.container.grid(row=2, column=0, columnspan=6, sticky=tk.W + tk.E)
+
     def connect(self):
-        print("Connect")
+        self.tabUsernamePassword = TabUsernamePassword(self.container)
+        self.tabUsernamePassword.grid(row=0, column=0, sticky="nsew")
+        self.tabUsernamePassword.tkraise()
