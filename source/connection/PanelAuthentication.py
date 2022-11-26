@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from source.connection.TabKerberos import TabKerberos
 from source.connection.TabUsernamePassword import TabUsernamePassword
+from source.connection.TabX509 import TabX509
 
 
 class PanelAuthentication(tk.Frame):
@@ -13,16 +15,16 @@ class PanelAuthentication(tk.Frame):
         self.labelAuthenticationMethod = tk.Label(self, text="Authentication Method")
         self.labelAuthenticationMethod.grid(row=0, column=0, columnspan=2, sticky=tk.W)
 
-        self.buttonNone = ttk.Button(self, text='None', command=self.connect)
+        self.buttonNone = ttk.Button(self, text='None')
         self.buttonNone.grid(row=1, column=0)
 
-        self.buttonUsernamePassword = ttk.Button(self, text='Username/Password')
+        self.buttonUsernamePassword = ttk.Button(self, text='Username/Password', command=self.showUsernamePassword)
         self.buttonUsernamePassword.grid(row=1, column=1)
 
-        self.buttonX509 = ttk.Button(self, text="X.509")
+        self.buttonX509 = ttk.Button(self, text="X.509", command=self.showX509)
         self.buttonX509.grid(row=1, column=2)
 
-        self.buttonKerberos = ttk.Button(self, text="Kerberos")
+        self.buttonKerberos = ttk.Button(self, text="Kerberos", command=self.showKerberos)
         self.buttonKerberos.grid(row=1, column=3)
 
         self.buttonLDAP = ttk.Button(self, text="LDAP")
@@ -34,7 +36,17 @@ class PanelAuthentication(tk.Frame):
         self.container = tk.Frame(self)
         self.container.grid(row=2, column=0, columnspan=6, sticky=tk.W + tk.E)
 
-    def connect(self):
+    def showUsernamePassword(self):
         self.tabUsernamePassword = TabUsernamePassword(self.container)
         self.tabUsernamePassword.grid(row=0, column=0, sticky="nsew")
         self.tabUsernamePassword.tkraise()
+
+    def showX509(self):
+        self.tabX509 = TabX509(self.container)
+        self.tabX509.grid(row=0, column=0, sticky="nsew")
+        self.tabX509.tkraise()
+
+    def showKerberos(self):
+        self.tabKerberos = TabKerberos(self.container)
+        self.tabKerberos.grid(row=0, column=0, sticky="nsew")
+        self.tabKerberos.tkraise()
