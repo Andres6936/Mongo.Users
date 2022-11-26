@@ -8,32 +8,32 @@ class TabKerberos(tk.Frame):
 
         self.grid_columnconfigure((0, 1, 2), uniform="uniform", weight=1)
 
-        self.labelUsername = ttk.Label(self, text="Username")
-        self.labelUsername.grid(row=0, sticky=tk.W)
+        self.labelPrincipal = ttk.Label(self, text="Principal")
+        self.labelPrincipal.grid(row=0, sticky=tk.W)
 
-        self.entryUsername = ttk.Entry(self)
-        self.entryUsername.grid(row=1)
+        self.entryPrincipal = ttk.Entry(self)
+        self.entryPrincipal.grid(row=1)
 
-        self.labelPassword = ttk.Label(self, text="Password")
-        self.labelPassword.grid(row=2, sticky=tk.W)
+        self.labelServiceName = ttk.Label(self, text="Service Name")
+        self.labelServiceName.grid(row=2, sticky=tk.W)
 
-        self.entryPassword = ttk.Entry(self)
-        self.entryPassword.grid(row=3)
+        self.entryServiceName = ttk.Entry(self)
+        self.entryServiceName.grid(row=3)
 
-        self.labelAuthenticationDatabase = ttk.Label(self, text="Authentication Database")
-        self.labelAuthenticationDatabase.grid(row=4, sticky=tk.W)
+        self.labelCanonicalizeHostName = ttk.Label(self, text="Canonicalize Host Name")
+        self.labelCanonicalizeHostName.grid(row=4, sticky=tk.W)
 
-        self.entryAuthenticationDatabase = ttk.Entry(self)
-        self.entryAuthenticationDatabase.grid(row=5)
+        self.buttonNone = ttk.Button(self, text="None")
+        self.buttonNone.grid(row=5, column=0)
 
-        self.labelAuthenticationMechanism = ttk.Label(self, text="Authentication Mechanism")
-        self.labelAuthenticationMechanism.grid(row=6, sticky=tk.W)
+        self.buttonForward = ttk.Button(self, text="Forward")
+        self.buttonForward.grid(row=5, column=1)
 
-        self.buttonDefault = ttk.Button(self, text="Default")
-        self.buttonDefault.grid(row=7, column=0)
+        self.buttonForwardReverse = ttk.Button(self, text="Forward and reverse")
+        self.buttonForwardReverse.grid(row=5, column=2)
 
-        self.buttonSCRAM_SHA1 = ttk.Button(self, text="SCRAM-SHA-1")
-        self.buttonSCRAM_SHA1.grid(row=7, column=1)
+        self.labelServiceRealm = ttk.Label(self, text="Service Realm")
+        self.labelServiceRealm.grid(row=6, sticky=tk.W)
 
-        self.buttonSCRAM_SHA256 = ttk.Button(self, text="SCRAM-SHA-256")
-        self.buttonSCRAM_SHA256.grid(row=7, column=2)
+        self.entryServiceRealm = ttk.Entry(self)
+        self.entryServiceRealm.grid(row=7)
