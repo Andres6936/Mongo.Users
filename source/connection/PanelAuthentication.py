@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from source.connection.TabAWSIAM import TabAWSIAM
 from source.connection.TabKerberos import TabKerberos
+from source.connection.TabLDAP import TabLDAP
 from source.connection.TabUsernamePassword import TabUsernamePassword
 from source.connection.TabX509 import TabX509
 
@@ -27,10 +29,10 @@ class PanelAuthentication(tk.Frame):
         self.buttonKerberos = ttk.Button(self, text="Kerberos", command=self.showKerberos)
         self.buttonKerberos.grid(row=1, column=3)
 
-        self.buttonLDAP = ttk.Button(self, text="LDAP")
+        self.buttonLDAP = ttk.Button(self, text="LDAP", command=self.showLDAP)
         self.buttonLDAP.grid(row=1, column=4)
 
-        self.buttonAWSIAM = ttk.Button(self, text="AWS IAM")
+        self.buttonAWSIAM = ttk.Button(self, text="AWS IAM", command=self.showAWSIAM)
         self.buttonAWSIAM.grid(row=1, column=5)
 
         self.container = tk.Frame(self)
@@ -50,3 +52,13 @@ class PanelAuthentication(tk.Frame):
         self.tabKerberos = TabKerberos(self.container)
         self.tabKerberos.grid(row=0, column=0, sticky="nsew")
         self.tabKerberos.tkraise()
+
+    def showLDAP(self):
+        self.tabLDAP = TabLDAP(self.container)
+        self.tabLDAP.grid(row=0, column=0, sticky="nsew")
+        self.tabLDAP.tkraise()
+
+    def showAWSIAM(self):
+        self.tabAWSIAM = TabAWSIAM(self.container)
+        self.tabAWSIAM.grid(row=0, column=0, sticky="nsew")
+        self.tabAWSIAM.tkraise()
