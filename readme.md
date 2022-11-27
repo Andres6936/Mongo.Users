@@ -21,10 +21,5 @@ triángulo, (4) calcular la altura del triángulo.
 
 ## Interfaz
 
-![InterfazGUI](docs/specs/General.png)
+![InterfazGUI](docs/specs/InterfazGUI.png)
 
-![InterfazGUI](docs/specs/Authentication.png)
-
-![InterfazGUI](docs/specs/TLS.png)
-
-![InterfazGUI](docs/specs/Proxy.png)
