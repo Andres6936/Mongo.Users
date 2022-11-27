@@ -7,7 +7,7 @@ from source.user.TabManager import TabManager
 
 
 class PanelUser(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
         self.grid_rowconfigure(0, weight=1)
@@ -24,5 +24,5 @@ class PanelUser(tk.Frame):
         self.panelOptions = PanelOptions(self)
         self.panelOptions.grid(row=1, column=1, sticky="nsew")
 
-        self.panelButtons = PanelButtons(self)
+        self.panelButtons = PanelButtons(self, controller)
         self.panelButtons.grid(row=2, columnspan=2, sticky=tk.W + tk.E)

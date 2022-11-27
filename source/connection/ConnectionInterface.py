@@ -3,6 +3,7 @@ import tkinter as tk
 from source.connection.PanelMainButtons import PanelMainButtons
 from source.connection.PanelURL import PanelURL
 from source.connection.TabNewConnection import TabNewConnection
+from source.manager.TypeScene import TypeScene
 
 
 class ConnectionInterface(tk.Frame):
@@ -29,7 +30,7 @@ class ConnectionInterface(tk.Frame):
         self.panelMainButtons.grid(row=2, sticky=tk.E + tk.W)
 
     def connect(self) -> None:
-        self.controller.next()
+        self.controller.showScene(TypeScene.PANEL_MANAGER)
 
     def setPort(self, value) -> None:
         self.port.set(value)

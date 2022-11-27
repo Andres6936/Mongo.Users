@@ -1,6 +1,7 @@
 import tkinter as tk
 
 from source.connection.ConnectionInterface import ConnectionInterface
+from source.manager.TypeScene import TypeScene
 from source.user.PanelUser import PanelUser
 
 
@@ -16,11 +17,18 @@ class SceneManager(tk.Tk):
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
-        self.currentScene = ConnectionInterface(self.container, self)
-        self.currentScene.grid(row=0, column=0, sticky="nsew")
-        self.currentScene.tkraise()
+        self.panelManager = None
 
-    def next(self):
-        frame = PanelUser(self.container)
-        frame.grid(row=0, column=0, sticky="nsew")
-        frame.tkraise()
+        self.panelConnection = ConnectionInterface(self.container, self)
+        self.panelConnection.grid(row=0, column=0, sticky="nsew")
+        self.panelConnection.tkraise()
+
+    def showScene(self, typeScene: TypeScene):
+        if typeScene == TypeScene.PANEL_CONNECTION:
+            self.panelConnection.grid(row=0, column=0, sticky="nsew")
+            self.panelConnection.tkraise()
+        elif typeScene == TypeScene.PANEL_MANAGER:
+            if self.panelManager is None:
+                self.panelManager = PanelUser(self.container, self)
+            self.panelManager.grid(row=0, column=0, sticky="nsew")
+            self.panelManager.tkraise()
