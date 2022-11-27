@@ -22,7 +22,7 @@ class User(tk.Frame):
         self.buttonShowDetails.grid(row=3, column=0)
 
         self.buttonUpdate = ttk.Button(self, text="Update Rol")
-        self.buttonUpdate.grid(row=3, column=1)
+        self.buttonUpdate.grid(row=3, column=1, padx=8)
 
         self.buttonRemove = ttk.Button(self, text="Remove User")
         self.buttonRemove.grid(row=3, column=2)
