@@ -1,5 +1,9 @@
 # Descripción
 
+Tool used for manager (update rol, remove user or create new user and
+roles) the user and roles of MongoDB database. This tool support
+connections to Mongo Atlas and instances in local.
+
 ## Enunciado
 
 Se quiere construir un programas que permita manejar un triángulo.
@@ -17,4 +21,10 @@ triángulo, (4) calcular la altura del triángulo.
 
 ## Interfaz
 
-![InterfazGUI](docs/specs/InterfazGUI.png)
+![InterfazGUI](docs/specs/General.png)
+
+![InterfazGUI](docs/specs/Authentication.png)
+
+![InterfazGUI](docs/specs/TLS.png)
+
+![InterfazGUI](docs/specs/Proxy.png)
