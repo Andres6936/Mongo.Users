@@ -8,6 +8,7 @@ class PanelUser(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
+        self.grid_rowconfigure((0), uniform="uniform", weight=1)
         self.grid_columnconfigure((0, 1), weight=1)
 
         self.panelUserList = PanelListUsers(self)
