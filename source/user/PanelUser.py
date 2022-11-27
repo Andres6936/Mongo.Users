@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from source.user.PanelButtons import PanelButtons
 from source.user.PanelInfo import PanelInfo
 from source.user.PanelListUsers import PanelListUsers
 from source.user.PanelOptions import PanelOptions
@@ -21,3 +22,6 @@ class PanelUser(tk.Frame):
 
         self.panelOptions = PanelOptions(self)
         self.panelOptions.grid(row=1, column=1, sticky="nsew")
+
+        self.panelButtons = PanelButtons(self)
+        self.panelButtons.grid(row=2, columnspan=2, sticky=tk.W + tk.E)
