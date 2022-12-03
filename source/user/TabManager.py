@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
+from source.user.PanelFilters import PanelFilters
 from source.user.PanelListRoles import PanelListRoles
 from source.user.PanelListUsers import PanelListUsers
 
@@ -18,3 +19,6 @@ class TabManager(tk.Frame):
         self.advanceConnectionOptions.add(self.panelRolesList, text="Roles")
 
         self.advanceConnectionOptions.grid(row=0, column=0, padx=5, pady=5)
+
+        self.panelFilter = PanelFilters(self)
+        self.panelFilter.grid(row=1, column=0, sticky=tk.W + tk.E)
