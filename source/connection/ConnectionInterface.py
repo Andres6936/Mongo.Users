@@ -29,8 +29,7 @@ class ConnectionInterface(tk.Frame):
 
         self.tabNewConnection = TabNewConnection(
             self, port=self.port, hostname=self.hostname, username=self.username,
-            password=self.password, setPort=self.setPort, setHostname=self.setHostname,
-            setUsername=self.setUsername, setPassword=self.setPassword)
+            password=self.password, setPort=self.setPort, setHostname=self.setHostname)
         self.tabNewConnection.grid(row=1, sticky=tk.E + tk.W)
 
         self.panelMainButtons = PanelMainButtons(self, connect=self.connect)
@@ -45,14 +44,6 @@ class ConnectionInterface(tk.Frame):
 
     def setHostname(self, value) -> None:
         self.hostname.set(value)
-        self.updateVariable()
-
-    def setUsername(self, value) -> None:
-        self.username.set(value)
-        self.updateVariable()
-
-    def setPassword(self, value) -> None:
-        self.password.set(value)
         self.updateVariable()
 
     def updateVariable(self, *args) -> None:

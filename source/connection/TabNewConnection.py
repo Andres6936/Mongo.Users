@@ -14,8 +14,7 @@ class TabNewConnection(tk.Frame):
 
     def __init__(self, parent, port: tk.StringVar, hostname: tk.StringVar,
                  username: tk.StringVar, password: tk.StringVar,
-                 setPort: Callable[[str], None], setHostname: Callable[[str], None],
-                 setUsername: Callable[[str], None], setPassword: Callable[[str], None]):
+                 setPort: Callable[[str], None], setHostname: Callable[[str], None]):
         tk.Frame.__init__(self, parent)
 
         self.grid_columnconfigure((0), uniform="uniform", weight=1)
@@ -28,8 +27,7 @@ class TabNewConnection(tk.Frame):
         self.advanceConnectionOptions.add(self.tabGeneral, text="General")
 
         self.tabAuthentication = PanelAuthentication(
-            self.advanceConnectionOptions, username=username, password=password,
-            setUsername=setUsername, setPassword=setPassword)
+            self.advanceConnectionOptions, username=username, password=password)
         self.advanceConnectionOptions.add(self.tabAuthentication, text="Authentication")
 
         self.tabTLS_SSL = PanelTLSSSL(self.advanceConnectionOptions)

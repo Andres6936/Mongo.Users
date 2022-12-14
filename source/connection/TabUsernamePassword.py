@@ -1,11 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
-from typing import Callable
 
 
 class TabUsernamePassword(tk.Frame):
-    def __init__(self, parent, username: tk.StringVar, password: tk.StringVar,
-                 setUsername: Callable[[str], None], setPassword: Callable[[str], None]):
+    def __init__(self, parent, username: tk.StringVar, password: tk.StringVar):
         tk.Frame.__init__(self, parent)
 
         self.grid_columnconfigure((0, 1, 2), uniform="uniform", weight=1)
