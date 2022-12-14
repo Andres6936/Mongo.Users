@@ -21,6 +21,20 @@ class TypeButton(enum.Enum):
 
 
 class PanelAuthentication(tk.Frame):
+    """
+    Authentication is the process of verifying the identity of a client.
+    When access control (authorization) is enabled, MongoDB requires
+    all clients to authenticate themselves in order to determine their
+    access.
+
+    Although authentication and authorization are closely connected,
+    authentication is distinct from authorization:
+
+    - Authentication verifies the identity of a user.
+    - Authorization determines the verified user's access to resources
+        and operations.
+    """
+
     def __init__(self, parent, username: tk.StringVar, password: tk.StringVar):
         tk.Frame.__init__(self, parent)
 

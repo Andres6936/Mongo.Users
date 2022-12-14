@@ -7,6 +7,9 @@ from source.manager.TypeScene import TypeScene
 
 
 class ConnectionInterface(tk.Frame):
+    """
+    Central panel used for controller the type of connection to MongoDB
+    """
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
