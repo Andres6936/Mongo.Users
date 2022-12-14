@@ -24,13 +24,13 @@ class PanelTLSSSL(tk.Frame):
         self.labelCertificateAuthority.grid(row=2, column=0, sticky=tk.W)
 
         self.fileCertificatePEM = ttk.Button(self, text="Select a file...")
-        self.fileCertificatePEM.grid(row=2, column=1, columnspan=2, sticky=tk.W + tk.E)
+        self.fileCertificatePEM.grid(row=2, column=1, columnspan=2, sticky=tk.W + tk.E, pady=5)
 
         self.labelClientCertificate = ttk.Label(self, text="Client Certificate and Key (.pem)")
         self.labelClientCertificate.grid(row=3, column=0, sticky=tk.W)
 
         self.fileClientCertificatePEM = ttk.Button(self, text="Select a file...")
-        self.fileClientCertificatePEM.grid(row=3, column=1, columnspan=2, sticky=tk.W + tk.E)
+        self.fileClientCertificatePEM.grid(row=3, column=1, columnspan=2, sticky=tk.W + tk.E, pady=1)
 
         self.labelClientKey = ttk.Label(self, text="Client Key Password")
         self.labelClientKey.grid(row=4, column=0, sticky=tk.W)
