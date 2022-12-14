@@ -2,6 +2,44 @@ import tkinter as tk
 from tkinter import ttk
 
 class PanelAdvanced(tk.Frame):
+    """
+    By default, an application directs its read operations to
+    the primary member in a replica set (i.e. read preference
+    mode "primary"). But, clients can specify a read
+    preference to send read operations to secondaries.
+
+    Read preference consists of the read preference mode and
+    optionally, a tag set list, the maxStalenessSeconds
+    option, and the hedged read option. Hedged read option is
+    available for MongoDB 4.4+ sharded clusters for reads
+    that use non-primary read preference.
+
+    The following table lists a brief summary of the read
+    preference modes:
+
+
+    - primary: Default mode. All operations read from the
+      current replica set primary.
+
+    - primaryPreferred: In most situations, operations read
+      from the primary but if it is unavailable, operations
+      read from secondary members.
+
+    - secondary: All operations read from the secondary
+      members of the replica set.
+
+    - secondaryPreferred: In most situations, operations read
+      from secondary members but if no secondary members are
+      available, operations read from the primary on sharded
+      clusters.
+
+    - nearest: Operations read from a random eligible replica
+      set member, irrespective of whether that member is a
+      primary or secondary, based on a specified latency
+      threshold. The operation considers the following when
+      calculating latency:
+    """
+
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
