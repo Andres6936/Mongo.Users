@@ -17,10 +17,10 @@ class PanelGeneral(tk.Frame):
         self.connectionStringScheme.grid(row=0, column=0, columnspan=3, sticky=tk.W)
 
         self.buttonConnectionMongo = ttk.Button(self, text="mongodb")
-        self.buttonConnectionMongo.grid(row=1, column=0, sticky=tk.W + tk.E)
+        self.buttonConnectionMongo.grid(row=1, column=0, sticky=tk.W + tk.E, padx=5)
 
         self.buttonConnectionSRV = ttk.Button(self, text="mongodb+svr")
-        self.buttonConnectionSRV.grid(row=1, column=1, sticky=tk.W + tk.E)
+        self.buttonConnectionSRV.grid(row=1, column=1, sticky=tk.W + tk.E, padx=5)
 
         self.buttonDescription = tk.Label(self, text="Standard Connection String Format. "
                                                      "The standard format of the MongoDB "
@@ -36,7 +36,7 @@ class PanelGeneral(tk.Frame):
         self.hostnameVar = tk.StringVar(value=f"{hostname.get()}:{port.get()}")
         self.hostnameVar.trace_add(mode="write", callback=self.updateHostnamePort)
         self.inputHostname = ttk.Entry(self, textvariable=self.hostnameVar)
-        self.inputHostname.grid(row=4, column=0, columnspan=3, sticky=tk.W + tk.E)
+        self.inputHostname.grid(row=4, column=0, columnspan=3, sticky=tk.W + tk.E, padx=5)
 
         self.checkDirectConnection = ttk.Checkbutton(self, text="Direct Connection")
         self.checkDirectConnection.grid(row=5, column=0, columnspan=3, sticky=tk.W)
