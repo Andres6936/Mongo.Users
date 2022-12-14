@@ -13,6 +13,8 @@ class SceneManager(tk.Tk):
 
     - The first scene is the new connection for MongoDB
     - The second scene is the view of users and roles of MongoDB
+
+    Note: The policy for initialize the scene is lazy evaluation
     """
 
     def __init__(self, *args, **kwargs):
@@ -26,6 +28,7 @@ class SceneManager(tk.Tk):
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
+        # Lazy evaluation of scene
         self.panelManager = None
 
         self.panelConnection = ConnectionInterface(self.container, self)
@@ -33,6 +36,13 @@ class SceneManager(tk.Tk):
         self.panelConnection.tkraise()
 
     def showScene(self, typeScene: TypeScene) -> None:
+        """
+        Used for change the current scene of manager,
+        the connection in this point to MongoDB must
+        be set.
+
+        :param typeScene: The type of scene to show.
+        """
         if typeScene == TypeScene.PANEL_CONNECTION:
             self.panelConnection.grid(row=0, column=0, sticky="nsew")
             self.panelConnection.tkraise()
