@@ -13,6 +13,8 @@ class ConnectionInterface(tk.Frame):
 
         self.controller = controller
         self.port = tk.StringVar(value="27017")
+        self.password = tk.StringVar(value='root')
+        self.username = tk.StringVar(value='root')
         self.hostname = tk.StringVar(value="hostname")
         self.uri = tk.StringVar(value=f"mongodb://{self.hostname.get()}:{self.port.get()}/")
 
@@ -41,4 +43,8 @@ class ConnectionInterface(tk.Frame):
         self.updateVariable()
 
     def updateVariable(self) -> None:
-        self.uri.set(f"mongodb://{self.hostname.get()}:{self.port.get()}/")
+        if len(self.username.get()) > 0 or len(self.password.get()) > 0:
+            self.uri.set(
+                f"mongodb://{self.username.get()}:{self.password.get()}@{self.hostname.get()}:{self.port.get()}/")
+        else:
+            self.uri.set(f"mongodb://{self.hostname.get()}:{self.port.get()}/")
