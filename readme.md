@@ -23,3 +23,4 @@ triángulo, (4) calcular la altura del triángulo.
 
 ![InterfazGUI](docs/specs/InterfazGUI.png)
 
+Theme used: [Azure](https://github.com/rdbende/Azure-ttk-theme)
