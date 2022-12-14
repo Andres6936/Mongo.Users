@@ -3,6 +3,12 @@ from tkinter import ttk
 
 
 class TabLDAP(tk.Frame):
+    """
+    MongoDB Enterprise and MongoDB Atlas support LDAP Proxy
+    Authentication proxy authentication through a Lightweight
+    Directory Access Protocol (LDAP) service.
+    """
+
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 

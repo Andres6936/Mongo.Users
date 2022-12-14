@@ -3,6 +3,17 @@ from tkinter import ttk
 
 
 class TabKerberos(tk.Frame):
+    """
+    MongoDB Enterprise and MongoDB Atlas support Kerberos Authentication.
+    Kerberos is an industry standard authentication protocol for large
+    client/server systems that provides authentication using short-lived
+    tokens that are called tickets.
+
+    To use MongoDB with Kerberos, you must have a properly configured
+    Kerberos deployment, configured Kerberos service principals for
+    MongoDB, and a Kerberos user principal added to MongoDB.
+    """
+
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
