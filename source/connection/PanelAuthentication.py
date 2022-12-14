@@ -1,6 +1,7 @@
 import enum
 import tkinter as tk
 from tkinter import ttk
+from typing import List
 
 from source.connection.TabAWSIAM import TabAWSIAM
 from source.connection.TabKerberos import TabKerberos
@@ -49,17 +50,32 @@ class PanelAuthentication(tk.Frame):
         self.container.grid(row=2, column=0, columnspan=6, sticky=tk.W + tk.E)
 
     def accentButton(self, typeButton: TypeButton):
+        buttons: List[ttk.Button] = [
+            self.buttonNone,
+            self.buttonUsernamePassword,
+            self.buttonX509,
+            self.buttonKerberos,
+            self.buttonLDAP,
+            self.buttonAWSIAM
+        ]
+
         if typeButton == TypeButton.NONE:
+            [button.configure(style='') for button in buttons]
             self.buttonNone.configure(style="Accent.TButton")
         elif typeButton == TypeButton.USERNAME_PASSWORD:
+            [button.configure(style='') for button in buttons]
             self.buttonUsernamePassword.configure(style="Accent.TButton")
         elif typeButton == TypeButton.X509:
+            [button.configure(style='') for button in buttons]
             self.buttonX509.configure(style="Accent.TButton")
         elif typeButton == TypeButton.KERBEROS:
+            [button.configure(style='') for button in buttons]
             self.buttonKerberos.configure(style="Accent.TButton")
         elif typeButton == TypeButton.LDAP:
+            [button.configure(style='') for button in buttons]
             self.buttonLDAP.configure(style="Accent.TButton")
         elif typeButton == TypeButton.AWS_IAM:
+            [button.configure(style='') for button in buttons]
             self.buttonAWSIAM.configure(style="Accent.TButton")
 
     def showNone(self):
