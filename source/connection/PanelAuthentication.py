@@ -1,7 +1,7 @@
 import enum
 import tkinter as tk
 from tkinter import ttk
-from typing import List
+from typing import Callable, List
 
 from source.connection.TabAWSIAM import TabAWSIAM
 from source.connection.TabKerberos import TabKerberos
@@ -19,9 +19,16 @@ class TypeButton(enum.Enum):
     LDAP = 5
     AWS_IAM = 6
 
+
 class PanelAuthentication(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, username: tk.StringVar, password: tk.StringVar,
+                 setUsername: Callable[[str], None], setPassword: Callable[[str], None]):
         tk.Frame.__init__(self, parent)
+
+        self.username = username
+        self.password = password
+        self.setUsername = setUsername
+        self.setPassword = setPassword
 
         self.grid_columnconfigure((0, 1, 2, 3, 4, 5), weight=1)
 
@@ -86,7 +93,9 @@ class PanelAuthentication(tk.Frame):
 
     def showUsernamePassword(self):
         self.accentButton(TypeButton.USERNAME_PASSWORD)
-        self.tabUsernamePassword = TabUsernamePassword(self.container)
+        self.tabUsernamePassword = TabUsernamePassword(
+            self.container, username=self.username, password=self.password,
+            setUsername=self.setUsername, setPassword=self.setPassword)
         self.tabUsernamePassword.grid(row=0, column=0, sticky="nsew")
         self.tabUsernamePassword.tkraise()
 

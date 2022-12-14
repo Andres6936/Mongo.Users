@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+from typing import Callable
 
 
 class TabUsernamePassword(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, username: tk.StringVar, password: tk.StringVar,
+                 setUsername: Callable[[str], None], setPassword: Callable[[str], None]):
         tk.Frame.__init__(self, parent)
 
         self.grid_columnconfigure((0, 1, 2), uniform="uniform", weight=1)
@@ -11,13 +13,13 @@ class TabUsernamePassword(tk.Frame):
         self.labelUsername = ttk.Label(self, text="Username")
         self.labelUsername.grid(row=0, sticky=tk.W)
 
-        self.entryUsername = ttk.Entry(self)
+        self.entryUsername = ttk.Entry(self, textvariable=username)
         self.entryUsername.grid(row=1)
 
         self.labelPassword = ttk.Label(self, text="Password")
         self.labelPassword.grid(row=2, sticky=tk.W)
 
-        self.entryPassword = ttk.Entry(self)
+        self.entryPassword = ttk.Entry(self, textvariable=password)
         self.entryPassword.grid(row=3)
 
         self.labelAuthenticationDatabase = ttk.Label(self, text="Authentication Database")

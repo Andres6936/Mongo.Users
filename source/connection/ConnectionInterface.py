@@ -13,10 +13,13 @@ class ConnectionInterface(tk.Frame):
 
         self.controller = controller
         self.port = tk.StringVar(value="27017")
-        self.password = tk.StringVar(value='root')
-        self.username = tk.StringVar(value='root')
+        self.password = tk.StringVar(value='')
+        self.username = tk.StringVar(value='')
         self.hostname = tk.StringVar(value="hostname")
         self.uri = tk.StringVar(value=f"mongodb://{self.hostname.get()}:{self.port.get()}/")
+
+        self.username.trace_add(mode="write", callback=self.updateVariable)
+        self.password.trace_add(mode="write", callback=self.updateVariable)
 
         self.grid_columnconfigure((0), uniform="uniform", weight=1)
         self.grid_columnconfigure((0), uniform="uniform", weight=1)
@@ -24,8 +27,10 @@ class ConnectionInterface(tk.Frame):
         self.panelURL = PanelURL(self, uri=self.uri)
         self.panelURL.grid(row=0, sticky=tk.E + tk.W)
 
-        self.tabNewConnection = TabNewConnection(self, port=self.port, hostname=self.hostname,
-                                                 setPort=self.setPort, setHostname=self.setHostname)
+        self.tabNewConnection = TabNewConnection(
+            self, port=self.port, hostname=self.hostname, username=self.username,
+            password=self.password, setPort=self.setPort, setHostname=self.setHostname,
+            setUsername=self.setUsername, setPassword=self.setPassword)
         self.tabNewConnection.grid(row=1, sticky=tk.E + tk.W)
 
         self.panelMainButtons = PanelMainButtons(self, connect=self.connect)
@@ -42,7 +47,15 @@ class ConnectionInterface(tk.Frame):
         self.hostname.set(value)
         self.updateVariable()
 
-    def updateVariable(self) -> None:
+    def setUsername(self, value) -> None:
+        self.username.set(value)
+        self.updateVariable()
+
+    def setPassword(self, value) -> None:
+        self.password.set(value)
+        self.updateVariable()
+
+    def updateVariable(self, *args) -> None:
         if len(self.username.get()) > 0 or len(self.password.get()) > 0:
             self.uri.set(
                 f"mongodb://{self.username.get()}:{self.password.get()}@{self.hostname.get()}:{self.port.get()}/")
