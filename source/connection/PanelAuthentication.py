@@ -1,3 +1,4 @@
+import enum
 import tkinter as tk
 from tkinter import ttk
 
@@ -7,6 +8,15 @@ from source.connection.TabLDAP import TabLDAP
 from source.connection.TabUsernamePassword import TabUsernamePassword
 from source.connection.TabX509 import TabX509
 
+
+@enum.unique
+class TypeButton(enum.Enum):
+    NONE = 1
+    USERNAME_PASSWORD = 2
+    X509 = 3
+    KERBEROS = 4
+    LDAP = 5
+    AWS_IAM = 6
 
 class PanelAuthentication(tk.Frame):
     def __init__(self, parent):
@@ -38,32 +48,52 @@ class PanelAuthentication(tk.Frame):
         self.container = tk.Frame(self)
         self.container.grid(row=2, column=0, columnspan=6, sticky=tk.W + tk.E)
 
+    def accentButton(self, typeButton: TypeButton):
+        if typeButton == TypeButton.NONE:
+            self.buttonNone.configure(style="Accent.TButton")
+        elif typeButton == TypeButton.USERNAME_PASSWORD:
+            self.buttonUsernamePassword.configure(style="Accent.TButton")
+        elif typeButton == TypeButton.X509:
+            self.buttonX509.configure(style="Accent.TButton")
+        elif typeButton == TypeButton.KERBEROS:
+            self.buttonKerberos.configure(style="Accent.TButton")
+        elif typeButton == TypeButton.LDAP:
+            self.buttonLDAP.configure(style="Accent.TButton")
+        elif typeButton == TypeButton.AWS_IAM:
+            self.buttonAWSIAM.configure(style="Accent.TButton")
+
     def showNone(self):
+        self.accentButton(TypeButton.NONE)
         self.tabNone = tk.Frame(self.container)
         self.tabNone.grid(row=0, column=0, sticky="nsew")
         self.tabNone.tkraise()
 
     def showUsernamePassword(self):
+        self.accentButton(TypeButton.USERNAME_PASSWORD)
         self.tabUsernamePassword = TabUsernamePassword(self.container)
         self.tabUsernamePassword.grid(row=0, column=0, sticky="nsew")
         self.tabUsernamePassword.tkraise()
 
     def showX509(self):
+        self.accentButton(TypeButton.X509)
         self.tabX509 = TabX509(self.container)
         self.tabX509.grid(row=0, column=0, sticky="nsew")
         self.tabX509.tkraise()
 
     def showKerberos(self):
+        self.accentButton(TypeButton.KERBEROS)
         self.tabKerberos = TabKerberos(self.container)
         self.tabKerberos.grid(row=0, column=0, sticky="nsew")
         self.tabKerberos.tkraise()
 
     def showLDAP(self):
+        self.accentButton(TypeButton.LDAP)
         self.tabLDAP = TabLDAP(self.container)
         self.tabLDAP.grid(row=0, column=0, sticky="nsew")
         self.tabLDAP.tkraise()
 
     def showAWSIAM(self):
+        self.accentButton(TypeButton.AWS_IAM)
         self.tabAWSIAM = TabAWSIAM(self.container)
         self.tabAWSIAM.grid(row=0, column=0, sticky="nsew")
         self.tabAWSIAM.tkraise()
