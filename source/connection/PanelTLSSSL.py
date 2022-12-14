@@ -3,6 +3,51 @@ from tkinter import ttk
 
 
 class PanelTLSSSL(tk.Frame):
+    """
+    The TLS / SSL tab allows you to connect deployments using
+    TLS / SSL. You can leave TLS unset with the Default option
+    or set the TLS / SSL connection On or Off.
+
+    Option
+
+    - Default: The Default option leaves the TLS option unset.
+      The Default / unset TLS /SSL option is enabled when using
+      a DNS seedlist (SRV) in the connection string.
+
+    - On: Select the On option when using a DNS seedlist (SRV)
+      in the connection string. When TLS / SSL Connection is
+      On, you can specify additional certificate options for
+      your connection string.
+
+    - Off: The Off option initiates a connection without TLS / SSL.
+
+    Note: It is recommended that users enable TLS / SSL to
+    avoid security vulnerabilities.
+
+    Additional TLS / SSL Options
+
+    When TLS is On you can specify the following:
+
+    - Certificate Authority: One or more certificate files from
+      trusted Certificate Authorities to validate the certificate
+      provided by the deployment.
+
+    - Client Certificate: Specifies the location of a local .pem
+      file that contains either the client's TLS/SSL X.509
+      certificate or the client's TLS/SSL certificate and key.
+
+    - Client Key Password: If the Client Private Key is protected
+      with a password, you must provide the password.
+
+    - tlsInsecure: Disables various certificate validations.
+
+    - tlsAllowInvalidHostnames: Disables hostname validation of
+      the certificate presented by the the deployment.
+
+    - tlsAllowInvalidCertificates: Disable the validation of the
+      server certificates.
+    """
+
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
 
